@@ -13,8 +13,8 @@ app
         req.path = req._parsedUrl.pathname;
         next();
     })
-    .use(assets.middleware())
     .use('/blocks', express.static(__dirname + '/../blocks'))
+    .use(assets.middleware())
     .use(app.router)
     .use(function (req, res) {
         res.statusCode = 404;
